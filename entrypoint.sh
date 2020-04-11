@@ -13,12 +13,15 @@ if !ENV["GITHUB_TOKEN"]
   exit(1)
 end
 
-if ARGV[0].empty?
-  puts "Missing message argument."
+if ARGV[0]
+  message = ARGV[0]
+elseif ENV["COMMENT_PR_MESSAGE"]
+  message = ENV["COMMENT_PR_MESSAGE"]
+else
+  puts "Missing message argument (first) or env COMMENT_PR_MESSAGE."
   exit(1)
 end
 
-message = ARGV[0]
 check_duplicate_msg = ARGV[1]
 repo = event["repository"]["full_name"]
 
