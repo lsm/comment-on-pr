@@ -20,7 +20,7 @@ end
 
 message = ARGV[0] || ENV["COMMENT_PR_MESSAGE"]
 
-puts "Comment message: #{message}"
+puts "Comment message: #{message}, #{ARGV[0]}, #{ENV["COMMENT_PR_MESSAGE"]}"
 
 check_duplicate_msg = ARGV[1]
 repo = event["repository"]["full_name"]
