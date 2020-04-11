@@ -17,6 +17,7 @@ if ARGV[0]
   message = ARGV[0]
 else
   message = ENV["COMMENT_PR_MESSAGE"]
+end
 
 if message.empty?
   puts "Missing message argument (first) or env COMMENT_PR_MESSAGE."
