@@ -15,7 +15,7 @@ end
 
 if ARGV[0]
   message = ARGV[0]
-elseif ENV["COMMENT_PR_MESSAGE"]
+elsif ENV["COMMENT_PR_MESSAGE"]
   message = ENV["COMMENT_PR_MESSAGE"]
 else
   puts "Missing message argument (first) or env COMMENT_PR_MESSAGE."
