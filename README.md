@@ -5,8 +5,9 @@ A GitHub action to comment on the relevant open PR when a commit is pushed.
 ## Usage
 
 - Requires the `GITHUB_TOKEN` secret.
-- Requires the comment's message in the `msg` parameter.
-- Supports `COMMENT_PR_MESSAGE` env variable as content of the message if `msg` parameter is not set.
+- Set message content by:
+  - providing the `msg` parameter.
+  - setting the `COMMENT_PR_MESSAGE` env variable when `msg` parameter is not provided.
 - Supports `push` and `pull_request` event types.
 
 ### Sample workflow
@@ -23,6 +24,7 @@ jobs:
         uses: unsplash/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_PR_MESSAGE: "Conent of the message" // Used when `msg` is not provided. This value can be picked up from previous steps.
         with:
           msg: "Check out this message!"
           check_for_duplicate_msg: false  # OPTIONAL 
