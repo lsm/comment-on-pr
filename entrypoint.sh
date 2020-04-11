@@ -15,12 +15,15 @@ end
 
 if ARGV[0]
   message = ARGV[0]
-elsif ENV["COMMENT_PR_MESSAGE"]
-  message = ENV["COMMENT_PR_MESSAGE"]
 else
+  message = ENV["COMMENT_PR_MESSAGE"]
+
+if message.empty?
   puts "Missing message argument (first) or env COMMENT_PR_MESSAGE."
   exit(1)
 end
+  
+puts "Comment content: #{message}"
 
 check_duplicate_msg = ARGV[1]
 repo = event["repository"]["full_name"]
