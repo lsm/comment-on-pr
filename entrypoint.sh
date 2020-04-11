@@ -18,7 +18,7 @@ if ARGV[0].empty? and !ENV["COMMENT_PR_MESSAGE"]
   exit(1)
 end
 
-message = ARGV[0] or ENV["COMMENT_PR_MESSAGE"]
+message = ARGV[0] || ENV["COMMENT_PR_MESSAGE"]
 
 puts "Comment message: #{message}"
 
